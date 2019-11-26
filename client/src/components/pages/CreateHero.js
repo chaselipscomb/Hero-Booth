@@ -4,6 +4,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import API from '../utils/API';
 
 
 const styles = {
@@ -55,13 +56,13 @@ function SearchHero() {
     const [alias, setAlias] = useState("")
     const [aliases, setAliases] = useState([])
     let Hero = {
-        Image: image,
-        Name: name,
-        Title: title,
-        Bio: bio,
-        Alignment: alignment,
-        Stats: stats,
-        Aliases: aliases
+        image,
+        name,
+        title,
+        bio,
+        alignment,
+        stats,
+        aliases
     }
 
     
@@ -83,7 +84,7 @@ function SearchHero() {
 
     function addCharacter() {
         console.log(Hero)
-        
+        API.create(Hero).then(console.log("hero saved"))
     }
     
     function addStat() {

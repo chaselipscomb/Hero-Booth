@@ -8,5 +8,11 @@ const BASEURL = "/api/search/"
 export default {
   search: function(query) {
     return axios.get(BASEURL + query).then(({data}) => data);
+  },
+  create: function(hero) {
+    return axios.post("/api/create", hero).then(({data}) => data)
+  },
+  find: function() {
+    return axios.get("/api/find").then(console.log("character saved to DB"))
   }
 };

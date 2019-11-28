@@ -12,7 +12,7 @@ function Login() {
                 <Navbar.Brand href="#home">Home</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/SearchHero">Search</Nav.Link>
-                    <Nav.Link href="/Favorites">Favorites</Nav.Link>
+                    <Nav.Link href="/PowerStats">Statistics</Nav.Link>
                     <Nav.Link href="/CreateHero">Create</Nav.Link>
                     <Nav.Link href="/Creations">Creations</Nav.Link>
                     <Nav.Link href="/Login">Login</Nav.Link>

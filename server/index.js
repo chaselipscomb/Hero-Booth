@@ -34,6 +34,7 @@ app.post("/api/create/", ({ body: character }, res) => {
     db.created.find({}, (error, found) => {
       if (error) {
         console.log(error);
+        alert("Hero not found!")
       } else {
         res.json(found);
       }

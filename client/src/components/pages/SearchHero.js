@@ -3,6 +3,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 import API from '../utils/API';
 
 
@@ -19,11 +20,14 @@ const styles = {
         textAlign: "center"
     },
     resultcard: {
+        display: "none",
         width: "65%",
         height: "auto",
         margin: "5% auto",
         border: "1px solid black"
-    }, image: {
+    },
+    image: {
+        padding: "5%",
         width: "100%",
     },
     marginfirstTop: {
@@ -84,6 +88,15 @@ function SearchHero() {
             setaliases(res.biography.aliases)
             setStats(res.powerstats)
         })
+        styles.resultcard = {
+            display: "block",
+            width: "65%",
+            height: "auto",
+            margin: "5% auto",
+            borderStyle: "solid",
+            borderColor: "darkslategray",
+            borderWidth: "2px",
+        }
     }
 
 
@@ -97,7 +110,7 @@ function SearchHero() {
                         <InputGroup.Text id="inputGroup-sizing-lg">Hero</InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl aria-label="Large" value={search} onChange={(e) => setSearch(e.target.value)} aria-describedby="inputGroup-sizing-sm" placeholder="Search Hero here..." />
-                    <button onClick={searching}>Search</button>
+                    <Button variant="dark" onClick={searching}>Search</Button>
                 </InputGroup>
             </div>
             <div style={styles.resultcard}>

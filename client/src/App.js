@@ -5,6 +5,8 @@ import SearchHero from "./components/pages/SearchHero";
 import CreateHero from "./components/pages/CreateHero";
 import NavBar from "./components/pages/NavBar";
 import Creations from "./components/pages/Creations";
+import PowerStats from "./components/pages/PowerStats";
+// import Footer from "./components/pages/Footer";
 import './App.css';
 
 class App extends Component {
@@ -31,8 +33,10 @@ class App extends Component {
           <NavBar />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/SearchHero" component={SearchHero} />
+          <Route exact path="/PowerStats" component={PowerStats} />
           <Route exact path="/CreateHero" component={CreateHero} />
           <Route exact path="/Creations" component={Creations} />
+          {/* <Footer /> */}
         </React.Fragment>
       </Router>
     );

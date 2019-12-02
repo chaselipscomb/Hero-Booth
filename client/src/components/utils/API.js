@@ -9,6 +9,9 @@ export default {
   search: function (query) {
     return axios.get(BASEURL + query).then(({ data }) => data);
   },
+  searchall: function (query) {
+    return axios.get(BASEURL + query).then(({ data }) => data);
+  },
   create: function (hero) {
     return axios.post("/api/create", hero).then(({ data }) => data)
   },

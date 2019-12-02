@@ -56,6 +56,14 @@ app.get("/api/search/:name", function (req, res) {
   console.log("woohoo we made we it");
   console.log(req.params.name)
 })
+app.get("/api/searchall/:name", function (req, res) {
+
+  const BASEURL = "https://superheroapi.com/api/";
+  const APIKEY = "2736829286383037";
+  axios.get(BASEURL + APIKEY + "/search/" + req.params.name)
+  .then(results => res.json(results))
+  
+})
 
 
 // Send every request to the React app

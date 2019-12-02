@@ -136,13 +136,13 @@ function SearchHero() {
                     </Col>
                     <Col>
                         <ul style={styles.marginTop}><h6>Stats:</h6>
-                            {Object.keys(stats).map(key => <li><span>{key}</span><span> {stats[key]}</span></li>)}
+                            {Object.keys(stats).map(key => <li><span>{key}:</span><span> {stats[key]}</span></li>)}
                         </ul>
                         <ul><h6>Physical Traits:</h6>
                             <li><span>race:</span><span> {race}</span></li>
-                            <li><span>gender":</span><span> {gender}</span></li>
-                            <li><span>height":</span><span> {height}</span></li>
-                            <li><span>weight":</span><span> {weight}</span></li>
+                            <li><span>gender:</span><span> {gender}</span></li>
+                            <li><span>height:</span><span> {height}</span></li>
+                            <li><span>weight:</span><span> {weight}</span></li>
                         </ul>
                     </Col>
                 </Row>

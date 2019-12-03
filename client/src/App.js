@@ -4,14 +4,23 @@ import Login from "./components/pages/Login";
 import SearchHero from "./components/pages/SearchHero";
 import CreateHero from "./components/pages/CreateHero";
 import NavBar from "./components/pages/NavBar";
+import Creations from "./components/pages/Creations";
+import PowerStats from "./components/pages/PowerStats";
+import Footer from "./components/pages/Footer";
 import './App.css';
+
+const styles = {
+  wrapper: {
+    marginBottom: "100px"
+  }
+}
 
 class App extends Component {
   state = {
     data: null
   };
 
-  
+
   // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
   callBackendAPI = async () => {
     const response = await fetch('/express_backend');
@@ -27,10 +36,15 @@ class App extends Component {
     return (
       <Router>
         <React.Fragment>
-          <NavBar />
-          <Route exact path="/Login" component={Login} />
-          <Route exact path="/SearchHero" component={SearchHero} />
-          <Route exact path="/CreateHero" component={CreateHero} />
+          <div style={styles.wrapper}>
+            <NavBar />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/SearchHero" component={SearchHero} />
+            <Route exact path="/PowerStats" component={PowerStats} />
+            <Route exact path="/CreateHero" component={CreateHero} />
+            <Route exact path="/Creations" component={Creations} />
+          </div>
+          <Footer />
         </React.Fragment>
       </Router>
     );

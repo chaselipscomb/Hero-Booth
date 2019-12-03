@@ -7,7 +7,7 @@ const axios = require("axios");
 const mongojs = require("mongojs");
 const logger = require("morgan");
 
-const databaseUrl = "FinalProject";
+const databaseUrl = process.env.MONGODB_URI || "FinalProject";
 const collections = ["created"];
 const db = mongojs(databaseUrl, collections);
 

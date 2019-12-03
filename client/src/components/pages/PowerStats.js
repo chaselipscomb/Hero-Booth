@@ -65,22 +65,32 @@ function PowerStats() {
             + parseInt(secondhero.powerstats.strength)
         console.log(secondherocount)
         setTimeout(function () {
-            if (firstherocount > secondherocount) {
+            if(firsthero.name==="Thanos") {
+                setWinner(firsthero.name)
+                setWinnerImage(firstheroimage)
+                setWinPercentage("Avengers Unite!")
+            }
+            else if(secondhero.name==="Thanos") {
+                setWinner(secondhero.name)
+                setWinnerImage(secondheroimage)
+                setWinPercentage("Avengers Unite!")
+            }
+            else if (firstherocount > secondherocount) {
                 setWinner(firsthero.name)
                 setWinnerImage(firstheroimage)
                 const winpercentage =  firstherocount / (firstherocount + secondherocount) * 100
                 var num = winpercentage.toFixed(2);
-                setWinPercentage(num)
+                setWinPercentage(num+"%")
             } else if (firstherocount < secondherocount) {
                 setWinner(secondhero.name)
                 setWinnerImage(secondheroimage)
                 const winpercentage =  secondherocount / (secondherocount + firstherocount) * 100
                 var num = winpercentage.toFixed(2);
-                setWinPercentage(num)
+                setWinPercentage(num+"%")
             } else {
                 setWinner("Draw")
             }
-        }, 3000);
+        }, 2000);
     }
 
     return (
@@ -121,7 +131,7 @@ function PowerStats() {
                 <Col xs={5}>
                     <center>
                         <h2>{winner.name}</h2>
-                        <h6>Win Percentage: {winpercentage}%</h6>
+                        <h6>Win Percentage: {winpercentage}</h6>
                         <img src={winnerimage} style={styles.image} alt="picture" />
                     </center>
                 </Col >

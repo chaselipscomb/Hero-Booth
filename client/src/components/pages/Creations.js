@@ -23,7 +23,7 @@ const styles = {
         width: "25%"
     },
     image: {
-        width: "65%",
+        width: "85%",
         padding: "5%",
         borderRadius: "25%",
     }

@@ -85,6 +85,11 @@ function SearchHero() {
     function addCharacter() {
         console.log(Hero)
         API.create(Hero).then(console.log("hero saved"))
+        setImage("https://via.placeholder.com/300.png");
+        setName("");
+        setTitle("");
+        setBio("");
+        setAlignment("");
     }
     
     function addStat() {

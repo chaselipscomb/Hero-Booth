@@ -52,7 +52,13 @@ app.get("/api/search/:name", function (req, res) {
   const BASEURL = "https://superheroapi.com/api/";
   const APIKEY = "2736829286383037";
   axios.get(BASEURL + APIKEY + "/search/" + req.params.name)
-  .then(results => res.json(results.data.results[0]))
+  .then(results => {
+    const heroData = results && results.data && results.data.results;
+    if (!heroData || !heroData.length) {
+      return res.sendStatus(404);
+    }
+    res.json(heroData[0])
+  })
   console.log("woohoo we made we it");
   console.log(req.params.name)
 })

@@ -25,7 +25,7 @@ export default class Login extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-  
+
     try {
       await Auth.signIn(this.state.email, this.state.password);
       alert("Logged in");
@@ -33,34 +33,32 @@ export default class Login extends Component {
       alert(e.message);
     }
   }
-  
+
   render() {
     return (
       <div className="Login">
+        <center><h1>Login</h1></center>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="email" bsSize="large">
             <Form.Control
               autoFocus
               type="email"
+              placeholder="Enter email..."
               value={this.state.email}
               onChange={this.handleChange}
             />
           </Form.Group>
           <Form.Group controlId="password" bsSize="large">
             <Form.Control
+              placeholer="Password..."
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
             />
           </Form.Group>
-          <Button
-            block
-            bsSize="large"
-            disabled={!this.validateForm()}
-            type="submit"
-          >
+          <Button variant="primary" size="lg" href="/" disabled={!this.validateForm()} type="submit" block>
             Login
-          </Button>
+            </Button>
         </Form>
       </div>
     );

@@ -2,3 +2,24 @@
     font-family: 'Special Elite', cursive;
     background-color: 'blue';
 }
+.border-glow {
+    border: 1px solid blue;
+    animation: 2s infinite glow;
+  }
+  @keyframes glow {
+    0% {
+      border-color: white;
+    }
+    60% {
+        border-color: rgb(251, 255, 0);
+      }
+    
+  }
+  @-webkit-keyframes glow {
+    0% {
+      border-color: white;
+    }
+    60% {
+        border-color: rgb(251, 255, 0);
+      }
+  }

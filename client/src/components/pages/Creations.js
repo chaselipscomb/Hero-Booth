@@ -61,7 +61,7 @@ function Creations() {
                         <Col style={styles.columnWidth}><strong>Stats: </strong>
                             {item.stats.map(item => <li>{item}</li>)}
                         </Col>
-                        <Col style={styles.columnWidth}><strong>Aliases: </strong>
+                        <Col style={styles.columnWidth}><strong>Allies: </strong>
                         {item.aliases.map(item => <li>{item}</li>)}
                         </Col>
                     </Row>

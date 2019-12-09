@@ -67,12 +67,14 @@ function SearchHero() {
     const [gender, setGender] = useState("Male")
     const [height, setHeight] = useState("6'7")
     const [weight, setWeight] = useState("985 lb")
+    const [hero, setHero] = useState({})
 
 
     function searching() {
         console.log(search)
         API.search(search).then(res => {
             console.log(res, res.biography['alter-egos']);
+            setHero(res)
             setImage(res.image.url)
             setName(res.name)
             setFullname(res.biography['full-name'])
@@ -97,6 +99,10 @@ function SearchHero() {
             borderColor: "darkslategray",
             borderWidth: "2px",
         }
+    }
+
+    function addHeroToFavorites() {
+        API.favoriteHero(hero).then(alert("Hero added to favorites!"))
     }
 
 
@@ -130,7 +136,7 @@ function SearchHero() {
                             <li><span>publisher:</span><span> {publisher}</span></li>
                             <li><span>alignment:</span><span> {alignment}</span></li>
                         </ul>
-                        <ul><h6>Aliases:</h6>
+                        <ul><h6>Allies:</h6>
                             {aliases.map(item => <li>{item}</li>)}
                         </ul>
                     </Col>
@@ -146,6 +152,8 @@ function SearchHero() {
                         </ul>
                     </Col>
                 </Row>
+                    <Button variant="dark" onClick={addHeroToFavorites} block>Favorite</Button>
+                
             </div>
         </React.Fragment>
     )

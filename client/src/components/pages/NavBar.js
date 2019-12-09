@@ -19,7 +19,7 @@ function Login() {
     function changeLogin() {
         setLogin("Logout")
     }
-    return (
+   return (
         <React.Fragment>
 
             <Navbar bg="dark" variant="dark">
@@ -30,6 +30,7 @@ function Login() {
 
                     <NavDropdown title="Menu" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="/SearchHero">Search</NavDropdown.Item>
+                        <NavDropdown.Item href="/Favorites">Favorites</NavDropdown.Item>
                         <NavDropdown.Item href="/PowerStats">Versus</NavDropdown.Item>
                         <NavDropdown.Item href="/CreateHero">Create</NavDropdown.Item>
                         <NavDropdown.Item href="/Creations">Creations</NavDropdown.Item>

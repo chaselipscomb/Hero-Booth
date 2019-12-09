@@ -90,6 +90,8 @@ function SearchHero() {
         setTitle("");
         setBio("");
         setAlignment("");
+        setStats([]);
+        setAliases([])
     }
     
     function addStat() {
@@ -154,7 +156,7 @@ function SearchHero() {
                             <InputGroup.Prepend>
                                 <InputGroup.Text id="basic-addon1">Alias</InputGroup.Text>
                             </InputGroup.Prepend>
-                            <FormControl placeholder="Enter Alias..." value={alias} onChange={(e) => setAlias(e.target.value)} aria-label="Stat" aria-describedby="basic-addon1" />
+                            <FormControl placeholder="Enter Ally..." value={alias} onChange={(e) => setAlias(e.target.value)} aria-label="Stat" aria-describedby="basic-addon1" />
                             <Button onClick={addAlias} >Add Alias</Button>
                         </InputGroup>
 
@@ -193,7 +195,7 @@ function SearchHero() {
                                 </Col>
                                 <Col>
                                     <ul>
-                                        <h6>Aliases:</h6>
+                                        <h6>Allies:</h6>
                                         {aliases.map(item => (
                                             <li>{item}</li>
                                         ))}

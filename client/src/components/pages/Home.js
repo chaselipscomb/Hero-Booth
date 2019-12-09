@@ -37,6 +37,12 @@ function Home() {
                         </Col>
                         <Col>
                             <div style={styles.column}>
+                                <a href="/Favorites"><h3>Favorites</h3></a>
+                                <strong><p>View the Heroes in your Favorites Collection</p></strong>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div style={styles.column}>
                                 <a href="PowerStats"><h3>Versus</h3></a>
                                 <strong><p>Compare any two Heroes to see who is strongest</p></strong>
                             </div>

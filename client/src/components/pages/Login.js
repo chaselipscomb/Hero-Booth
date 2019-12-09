@@ -56,7 +56,7 @@ export default class Login extends Component {
               type="password"
             />
           </Form.Group>
-          <Button variant="primary" size="lg" href="/" disabled={!this.validateForm()} type="submit" block>
+          <Button variant="primary" size="lg" href="/" type="submit" onClick={() => alert("Signed in")} block>
             Login
             </Button>
         </Form>

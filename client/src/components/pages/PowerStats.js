@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import API from '../utils/API';
+import './style.css'
 
 const styles = {
     searchContainer: {
@@ -17,6 +18,13 @@ const styles = {
         width: "45%",
         borderRadius: "10%",
         borderStyle: "ridge",
+    },
+    winner: {
+        width: "45%",
+        borderRadius: "10%",
+        borderStyle: "ridge",
+        borderWidth: "5px",
+        borderColor: "gold"
     },
     smalltopmargin: {
         marginTop: "1%"
@@ -132,7 +140,7 @@ function PowerStats() {
                     <center>
                         <h2>{winner.name}</h2>
                         <h6>Win Percentage: {winpercentage}</h6>
-                        <img src={winnerimage} style={styles.image} alt="picture" />
+                        <img src={winnerimage} style={styles.winner} className="border-glow" alt="picture" />
                     </center>
                 </Col >
                 <Col >

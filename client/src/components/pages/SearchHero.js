@@ -22,7 +22,6 @@ const styles = {
     resultcard: {
         display: "none",
         width: "65%",
-        height: "auto",
         margin: "5% auto",
         border: "1px solid black"
     },
@@ -67,12 +66,17 @@ function SearchHero() {
     const [gender, setGender] = useState("Male")
     const [height, setHeight] = useState("6'7")
     const [weight, setWeight] = useState("985 lb")
+    const [hero, setHero] = useState({})
 
 
     function searching() {
         console.log(search)
         API.search(search).then(res => {
+            if(res===null) {
+                alert("Name not found! Enjoy this template of Thanos")
+            }
             console.log(res, res.biography['alter-egos']);
+            setHero(res)
             setImage(res.image.url)
             setName(res.name)
             setFullname(res.biography['full-name'])
@@ -91,12 +95,16 @@ function SearchHero() {
         styles.resultcard = {
             display: "block",
             width: "65%",
-            height: "auto",
+            overlow: "hidden",
             margin: "5% auto",
             borderStyle: "solid",
             borderColor: "darkslategray",
             borderWidth: "2px",
         }
+    }
+
+    function addHeroToFavorites() {
+        API.favoriteHero(hero).then(alert("Hero added to favorites!"))
     }
 
 
@@ -130,7 +138,7 @@ function SearchHero() {
                             <li><span>publisher:</span><span> {publisher}</span></li>
                             <li><span>alignment:</span><span> {alignment}</span></li>
                         </ul>
-                        <ul><h6>Aliases:</h6>
+                        <ul style={styles.ul}><h6>Allies:</h6>
                             {aliases.map(item => <li>{item}</li>)}
                         </ul>
                     </Col>
@@ -146,6 +154,8 @@ function SearchHero() {
                         </ul>
                     </Col>
                 </Row>
+                    <Button variant="dark" onClick={addHeroToFavorites} block>Favorite</Button>
+                
             </div>
         </React.Fragment>
     )

@@ -30,11 +30,32 @@ app.post("/api/create/", ({ body: character }, res) => {
   });
 });
 
+app.post("/api/favorite/", ({ body: character }, res) => {
+
+  db.favorites.save(character, (error, saved) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.send(saved);
+    }
+  });
+});
+
   app.get("/api/find", (req, res) => {
     db.created.find({}, (error, found) => {
       if (error) {
         console.log(error);
         alert("Hero not found!")
+      } else {
+        res.json(found);
+      }
+    });
+  });
+  app.get("/api/findFavorites", (req, res) => {
+    db.favorites.find({}, (error, found) => {
+      if (error) {
+        console.log(error);
+        alert("Heroes not found!")
       } else {
         res.json(found);
       }
@@ -70,6 +91,19 @@ app.get("/api/searchall/:name", function (req, res) {
   .then(results => res.json(results))
   
 })
+app.delete("/deleteCreation", function (name, res) {
+  db.created.remove({
+    name: mongojs.name
+  }, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+      console.log("deleted in server page")
+    }
+  });
+});
 
 
 // Send every request to the React app

@@ -7,6 +7,7 @@ import NavBar from "./components/pages/NavBar";
 import Creations from "./components/pages/Creations";
 import PowerStats from "./components/pages/PowerStats";
 import Home from "./components/pages/Home";
+import Favorites from "./components/pages/Favorites";
 import Footer from "./components/pages/Footer";
 import Picture from "./components/pages/backgroundmarvel.jpg"
 import './App.css';
@@ -46,6 +47,7 @@ class App extends Component {
             <Route exact path="/PowerStats" component={PowerStats} />
             <Route exact path="/CreateHero" component={CreateHero} />
             <Route exact path="/Creations" component={Creations} />
+            <Route exact path="/Favorites" component={Favorites} />
           </div>
           {/* <Footer /> */}
         </React.Fragment>

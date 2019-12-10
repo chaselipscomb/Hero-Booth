@@ -41,6 +41,9 @@ const styles = {
         height: "auto",
         display: "inline",
         overflow: "auto"
+    },
+    h1: {
+        margin: "2% auto"
     }
 }
 
@@ -92,6 +95,7 @@ function SearchHero() {
         setAlignment("");
         setStats([]);
         setAliases([])
+        alert("Character Added")
     }
     
     function addStat() {
@@ -105,7 +109,7 @@ function SearchHero() {
 
     return (
         <React.Fragment>
-            <center><h1>Create Your Own!</h1></center>
+            <center><h1 style={styles.h1}>Create Your Own!</h1></center>
             <Row>
                 <Col>
                     <center>

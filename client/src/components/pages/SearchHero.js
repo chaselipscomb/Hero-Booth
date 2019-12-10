@@ -22,7 +22,6 @@ const styles = {
     resultcard: {
         display: "none",
         width: "65%",
-        height: "auto",
         margin: "5% auto",
         border: "1px solid black"
     },
@@ -73,6 +72,9 @@ function SearchHero() {
     function searching() {
         console.log(search)
         API.search(search).then(res => {
+            if(res===null) {
+                alert("Name not found! Enjoy this template of Thanos")
+            }
             console.log(res, res.biography['alter-egos']);
             setHero(res)
             setImage(res.image.url)
@@ -93,7 +95,7 @@ function SearchHero() {
         styles.resultcard = {
             display: "block",
             width: "65%",
-            height: "auto",
+            overlow: "hidden",
             margin: "5% auto",
             borderStyle: "solid",
             borderColor: "darkslategray",
@@ -136,7 +138,7 @@ function SearchHero() {
                             <li><span>publisher:</span><span> {publisher}</span></li>
                             <li><span>alignment:</span><span> {alignment}</span></li>
                         </ul>
-                        <ul><h6>Allies:</h6>
+                        <ul style={styles.ul}><h6>Allies:</h6>
                             {aliases.map(item => <li>{item}</li>)}
                         </ul>
                     </Col>

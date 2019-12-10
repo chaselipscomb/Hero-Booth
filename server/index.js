@@ -91,6 +91,19 @@ app.get("/api/searchall/:name", function (req, res) {
   .then(results => res.json(results))
   
 })
+app.delete("/deleteCreation", function (name, res) {
+  db.created.remove({
+    name: mongojs.name
+  }, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+      console.log("deleted in server page")
+    }
+  });
+});
 
 
 // Send every request to the React app

@@ -93,7 +93,7 @@ app.get("/api/searchall/:name", function (req, res) {
 })
 app.delete("/deleteCreation", function (heroname, res) {
   db.created.remove({
-    name: mongojs.heroname
+    name: heroname
   }, (err, data) => {
     if (err) {
       console.log(err);

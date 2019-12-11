@@ -24,7 +24,7 @@ export default {
   findFavorites: function () {
     return axios.get("/api/findFavorites").then(({ data }) => data).catch(err => { throw err; });  
   },
-  deleteCreation: function (name) {
-    return axios.delete("/api/deleteCreation", name).then(console.log("Deleted from DB", name)) 
+  deleteCreation: function (heroname) {
+    return axios.delete("/api/deleteCreation", heroname).then(console.log("Deleted from DB", heroname)) 
   }
 };

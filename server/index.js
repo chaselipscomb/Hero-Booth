@@ -91,16 +91,15 @@ app.get("/api/searchall/:name", function (req, res) {
   .then(results => res.json(results))
   
 })
-app.delete("/deleteCreation", function (name, res) {
+app.delete("/deleteCreation", function (heroname, res) {
   db.created.remove({
-    name: mongojs.name
+    name: mongojs.heroname
   }, (err, data) => {
     if (err) {
       console.log(err);
       res.sendStatus(500);
     } else {
       res.json(data);
-      console.log("deleted in server page")
     }
   });
 });

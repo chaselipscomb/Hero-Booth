@@ -91,6 +91,7 @@ app.get("/api/searchall/:name", function (req, res) {
   .then(results => res.json(results))
   
 })
+//delete function
 app.delete("/deleteCreation", function (heroname, res) {
   db.created.remove({
     name: heroname

@@ -25,6 +25,6 @@ export default {
     return axios.get("/api/findFavorites").then(({ data }) => data).catch(err => { throw err; });  
   },
   deleteCreation: function (heroname) {
-    return axios.post("/api/deleteCreation", heroname).then(console.log("Deleted from DB", heroname)) 
+    return axios.delete("/api/deleteCreation", heroname).then(console.log("Deleted from DB", heroname)) 
   }
 };

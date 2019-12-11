@@ -78,7 +78,15 @@ app.get("/api/search/:name", function (req, res) {
     if (!heroData || !heroData.length) {
       return res.sendStatus(404);
     }
+    if(req.params.name==="thor") {
+      res.json(heroData[1])
+    } else if(req.params.name==="superman") {
+      res.json(heroData[1])
+    }  else if(req.params.name==="batman") {
+      res.json(heroData[1])
+    } else {
     res.json(heroData[0])
+    }
   })
   console.log("woohoo we made we it");
   console.log(req.params.name)
@@ -91,10 +99,9 @@ app.get("/api/searchall/:name", function (req, res) {
   .then(results => res.json(results))
   
 })
-//delete function
-app.delete("/deleteCreation", function (heroname, res) {
+app.delete("/deleteCreation", function (name, res) {
   db.created.remove({
-    name: heroname
+    name: mongojs.name
   }, (err, data) => {
     if (err) {
       console.log(err);

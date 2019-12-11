@@ -25,9 +25,15 @@ const styles = {
         margin: "5% auto",
         border: "1px solid black"
     },
+    imagecol: {
+        minWidth: "200px",
+    },
     image: {
-        padding: "5%",
+        margin: "2%",
+        padding: "1%",
         width: "100%",
+        borderRadius: "10%",
+        borderStyle: "ridge",
     },
     marginfirstTop: {
         marginTop: "10%"
@@ -72,8 +78,8 @@ function SearchHero() {
     function searching() {
         console.log(search)
         API.search(search).then(res => {
-            if(res===null) {
-                alert("Name not found! Enjoy this template of Thanos")
+            if(!(res)) {
+                alert("Name not found!")
             }
             console.log(res, res.biography['alter-egos']);
             setHero(res)
@@ -94,7 +100,9 @@ function SearchHero() {
         })
         styles.resultcard = {
             display: "block",
-            width: "65%",
+            maxHeight: "500px",
+            overflow: "auto",
+            width: "67%",
             overlow: "hidden",
             margin: "5% auto",
             borderStyle: "solid",
@@ -123,14 +131,14 @@ function SearchHero() {
             </div>
             <div style={styles.resultcard}>
                 <Row>
-                    <Col xs={5}>
-                        <img src={image} style={styles.image} alt="picture" />
+                    <Col xs={5} style={styles.imagecol}>
+                        <center><img src={image} style={styles.image} alt="picture" /></center>
                     </Col>
                     <Col>
                         <center>
                             <h2><span>{name}</span></h2>
                         </center>
-                        <ul style={styles.marginfirstTop}><h6>Bio:</h6>
+                        <ul style={styles.marginfirstTop}><h6><b>Bio:</b></h6>
                             <li><span>full-name:</span><span> {fullname}</span></li>
                             <li><span>alter-egos:</span><span> {alteregos}</span></li>
                             <li><span>place-of-birth:</span><span> {birthplace}</span></li>
@@ -138,20 +146,21 @@ function SearchHero() {
                             <li><span>publisher:</span><span> {publisher}</span></li>
                             <li><span>alignment:</span><span> {alignment}</span></li>
                         </ul>
-                        <ul style={styles.ul}><h6>Allies:</h6>
-                            {aliases.map(item => <li>{item}</li>)}
-                        </ul>
-                    </Col>
-                    <Col>
-                        <ul style={styles.marginTop}><h6>Stats:</h6>
-                            {Object.keys(stats).map(key => <li><span>{key}:</span><span> {stats[key]}</span></li>)}
-                        </ul>
-                        <ul><h6>Physical Traits:</h6>
+                        <ul><h6><b>Physical Traits:</b></h6>
                             <li><span>race:</span><span> {race}</span></li>
                             <li><span>gender:</span><span> {gender}</span></li>
                             <li><span>height:</span><span> {height}</span></li>
                             <li><span>weight:</span><span> {weight}</span></li>
                         </ul>
+                    </Col>
+                    <Col>
+                        <ul style={styles.marginTop}><h6><b>Stats:</b></h6>
+                            {Object.keys(stats).map(key => <li><span>{key}:</span><span> {stats[key]}</span></li>)}
+                        </ul>
+                        <ul style={styles.ul}><h6><b>Allies:</b></h6>
+                            {aliases.map(item => <li>{item}</li>)}
+                        </ul>
+                        
                     </Col>
                 </Row>
                     <Button variant="dark" onClick={addHeroToFavorites} block>Favorite</Button>

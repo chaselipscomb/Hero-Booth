@@ -8,7 +8,7 @@
   }
   @keyframes glow {
     0% {
-      border-color: white;
+      border-color: blue;
     }
     60% {
         border-color: rgb(251, 255, 0);
@@ -17,7 +17,7 @@
   }
   @-webkit-keyframes glow {
     0% {
-      border-color: white;
+      border-color: blue;
     }
     60% {
         border-color: rgb(251, 255, 0);

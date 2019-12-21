@@ -1,29 +1,35 @@
-# Create React Express App
+# Super Hero Finder
 
-## About This Boilerplate
+The Super Hero Finder is a website that utlizes an API called SuperHeroAPI. Filled with hundreds, and maybe thousands, of characters from all universes, comics, and movies. Each character has data such as biography information, physical traits, and other characters they are familiar with. Each character can be searched on the Search page. Two characters can fight on the Versus page to see who has higher combat statistics. This application also utilizes MongoDb. Each character can be favorited and added to the users Favorite Page, or you can create your own heroes which are currently Star Wars themed.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Built With
 
-## Starting the app locally
+* React
+* Express
+* MongoDB
+* Node
+* Bootstrap
+* Heroku
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
 
-```
-npm install
-```
+## Pages
+### Search Page
+![Screenshot](screenshots/searchpage.png)
+Search for any hero and see the informations retrieved from the API. When the user searches the input is sent to the API and an array of characters is returned. Array[0] is displayed on the page with all the information.
 
-This should install node modules within the server and the client folder.
+### Favorites Page
+![Screenshot](screenshots/Favoritespage.png)
+After clicking the Favorite button on the Search page, the character is stored in MongoDB. All characters stored in this databases can be viewed on this page.
 
-After both installations complete, run the following command in your terminal:
+### Versus Page
+![Screenshot](screenshots/Versuspage.png)
+Search any two characters in the SuperHeroAPI and fight them. The winner is based on who has higher combat statistics which can be viewed on the Search page under each hero. The win percentage is calculated as: winner points / (winner + loser points).
 
-```
-npm start
-```
+### Create Page
+![Screenshot](screenshots/createpage.png)
+Currently Star Wars themed, a user can create their own hero and give them statistics and make alliances. After submission the character is added to a MongoDB database.
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+### Creations Page
+![Screenshot](screenshots/creationspage.png)
+All heroes created on the Create page can be viewed here in a list. On page load the MongoDB is displayed on the page.

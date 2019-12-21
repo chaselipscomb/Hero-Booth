@@ -41,6 +41,7 @@ const styles = {
 function Creations() {
   const [results, setResults] = useState([]);
   useEffect(() => {
+    console.log("UseEffect working")
     API.find().then(res => {
       console.log(res.data);
       setResults(res.data);

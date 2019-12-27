@@ -1,0 +1,46 @@
+.homeColumn {
+    border-radius: 20%;
+    border-style: ridge;
+    margin-top: 15%;
+    width: auto;
+    height: auto;
+    
+}
+@media screen and (max-width: 985px) {
+    .homeColumn {
+        width: 500px;
+        border-radius: 5%;
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .homeColumn {
+        width: 350px;
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .homeColumn {
+        width: 250px;
+        margin-top: 20px;
+    }
+}
+.searchContainer {
+    width: 50%;
+    height: auto;
+    margin: 5% auto;
+}
+.searchPageButton {
+    display: block;
+}
+@media screen and (max-width: 800px) {
+    .searchContainer {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .searchContainer {
+        width: 300px;
+        display: block;
+    }
+}

@@ -11,6 +11,8 @@ import Favorites from "./components/pages/Favorites";
 import Footer from "./components/pages/Footer";
 import Picture from "./components/pages/backgroundmarvel.jpg"
 import './App.css';
+import './components/pages/hometwo.css';
+
 
 const styles = {
   wrapper: {

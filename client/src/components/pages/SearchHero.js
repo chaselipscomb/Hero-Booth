@@ -119,14 +119,14 @@ function SearchHero() {
 
     return (
         <React.Fragment>
-            <div style={styles.searchContainer}>
+            <div className="searchContainer">
                 <h1 style={styles.center}>Search Hero!</h1>
                 <InputGroup size="lg">
                     <InputGroup.Prepend>
                         <InputGroup.Text id="inputGroup-sizing-lg">Hero</InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl aria-label="Large" value={search} onChange={(e) => setSearch(e.target.value)} aria-describedby="inputGroup-sizing-sm" placeholder="Search Hero here..." />
-                    <Button variant="dark" onClick={searching}>Search</Button>
+                    <Button className="searchPageButton" variant="dark" onClick={searching}>Search</Button>
                 </InputGroup>
             </div>
             <div style={styles.resultcard}>

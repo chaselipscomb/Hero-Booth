@@ -15,7 +15,7 @@ const styles = {
         margin: "2% auto"
     },
     image: {
-        width: "45%",
+        width: "85%",
         borderRadius: "10%",
         borderStyle: "ridge",
     },

@@ -74,6 +74,7 @@ app.get("/api/search/:name", function (req, res) {
   const APIKEY = "2736829286383037";
   axios.get(BASEURL + APIKEY + "/search/" + req.params.name)
   .then(results => {
+    console.log("server page")
     const heroData = results && results.data && results.data.results;
     if (!heroData || !heroData.length) {
       return res.sendStatus(404);

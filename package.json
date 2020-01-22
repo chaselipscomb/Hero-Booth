@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "aws-amplify": "^1.2.4",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "redux": "^4.0.5"
   }
 }

@@ -26,11 +26,7 @@ function Navigation() {
                     <a href="https://www.marvel.com/characters"><img className="navimage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR8UWD_lswxlQzllFrl-Udb7xuKQiPIuqUfgVi1gT3eB80aAweK" alt="marvel" /></a>
                     <a href="https://www.dccomics.com/characters"><img className="navimage" src="https://www.slashfilm.com/wp/wp-content/images/dcfilms-logo-wonderwoman.jpg" alt="marvel" /></a>
                     </div>
-                    <Form inline>
                         <Link to="/Login" className="mobileLogin">Login</Link>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </Form>
                 </Navbar>
             </div>
             <div className="menuContainer">

@@ -22,7 +22,7 @@ function PageCards() {
                             <img class="rounded-circle" src="https://www.superherodb.com/pictures2/portraits/10/100/53.jpg" alt="Generic placeholder image" width="140" height="140" />
                             <h2>Compare</h2>
                             <p>Compare characters against one another to find out which character has stronger combat statistics. Each character has 6 categories which include: Intelligence, Power, Speed, Durability, Strength, and Combat.</p>
-                            <button class="btn btn-secondary"><Link to="/Characters" className="pagecardlink">Compare Characters »</Link></button>
+                            <button class="btn btn-secondary"><Link to="/Compare" className="pagecardlink">Compare Characters »</Link></button>
                         </center>
                     </div>
 
@@ -32,7 +32,7 @@ function PageCards() {
                             <img class="rounded-circle" src="https://www.superherodb.com/pictures2/portraits/10/100/768.jpg" alt="Generic placeholder image" width="140" height="140" />
                             <h2>Results</h2>
                             <p>Character comparisons are saved here. Find out which characters other users have compared and the outcomes of those battles. Characters may be compared more than once for different outcomes based on the win percentage.</p>
-                            <p><a class="btn btn-secondary" href="#Results" role="button">View Results »</a></p>
+                            <button class="btn btn-secondary"><Link to="/Results" className="pagecardlink">View Results »</Link></button>
                         </center>
                     </div>
                 </div>

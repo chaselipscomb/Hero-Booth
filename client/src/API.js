@@ -13,8 +13,9 @@ export default {
   searchall: function (query) {
     return axios.get(BASEURL + query).then(({ data }) => data).catch(err => { throw err; });
   },
-  create: function (hero) {
-    return axios.post("/api/create", hero).then(({ data }) => data).catch(err => { throw err; });
+  create: function (result) {
+    console.log('api page')
+    return axios.post("/api/create", result).then(({ data }) => data).catch(err => { throw err; });
   },
   favoriteHero: function (hero) {
     return axios.post("/api/favorite", hero).then(({ data }) => data).catch(err => { throw err; });

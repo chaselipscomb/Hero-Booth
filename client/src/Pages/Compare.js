@@ -30,6 +30,7 @@ function Compare() {
     const [styletwo, setstyletwo] = useState({
         'display': 'none'
     })
+    const [winnername, setwinnername] = useState("Winner")
     const [imagewinner, setimagewinner] = useState("yo")
     const [stylewinner, setstylewinner] = useState({
         'display': 'none'
@@ -87,23 +88,34 @@ function Compare() {
             + parseInt(statsone.strength)
         console.log(firstherocount)
         const secondherocount = parseInt(statstwo.combat)
-        + parseInt(statstwo.intelligence)
-        + parseInt(statstwo.power)
-        + parseInt(statstwo.speed)
-        + parseInt(statstwo.strength)
-    console.log(secondherocount)
+            + parseInt(statstwo.intelligence)
+            + parseInt(statstwo.power)
+            + parseInt(statstwo.speed)
+            + parseInt(statstwo.strength)
+        console.log(secondherocount)
         if (firstherocount > secondherocount) {
             setimagewinner(imageone)
-            setstylewinner({'display': 'flex'})
+            setstylewinner({ 'display': 'flex' })
+            setwinnername(nameone)
         } else if (firstherocount < secondherocount) {
             setimagewinner(imagetwo)
-            setstylewinner({'display': 'flex'})
+            setstylewinner({ 'display': 'flex' })
+            setwinnername(nametwo)
         } else {
             alert("Draw")
+            setwinnername('draw')
             setimagewinner('https://www.meme-arsenal.com/memes/dc69087c94cb6ec44f899407d77a2839.jpg')
-            setstylewinner({'display': 'flex'})
+            setstylewinner({ 'display': 'flex' })
         }
-
+        createResult();
+    }
+    function createResult() {
+        let result = {
+            personone: nameone,
+            persontwo: nametwo,
+            result: winnername
+        }
+        API.create(result).then(console.log("result saved"))
     }
 
 

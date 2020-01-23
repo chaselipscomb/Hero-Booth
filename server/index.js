@@ -6,7 +6,26 @@ const axios = require("axios");
 ///////////////////////////////////////////
 const mongojs = require("mongojs");
 const logger = require("morgan");
+/////////////
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://chaselipscomb:batman321@cluster0-v9bcp.mongodb.net/test?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
 
+// app.post("/api/create/", ({ body: character }, res) => {
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   db.collection.insert(
+//     {
+//       writeConcern: 'wordzz',
+//       ordered: 'word'
+//     }
+//  )
+
+//   client.close();
+// });
+// })
+////////////
 const databaseUrl = process.env.MONGODB_URI || "FinalProject";
 const collections = ["created"];
 const db = mongojs(databaseUrl, collections);
@@ -23,8 +42,10 @@ app.post("/api/create/", ({ body: character }, res) => {
 
   db.created.save(character, (error, saved) => {
     if (error) {
+      console.log('server didnt work')
       console.log(error);
     } else {
+      console.log('saved on server page')
       res.send(saved);
     }
   });

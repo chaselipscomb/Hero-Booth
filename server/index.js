@@ -79,9 +79,7 @@ app.get("/api/search/:name", function (req, res) {
     if (!heroData || !heroData.length) {
       return res.sendStatus(404);
     }
-    if(req.params.name==="thor") {
-      res.json(heroData[1])
-    } else if(req.params.name==="superman") {
+    if (req.params.name==="superman") {
       res.json(heroData[1])
     }  else if(req.params.name==="batman") {
       res.json(heroData[1])

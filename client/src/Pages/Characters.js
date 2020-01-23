@@ -6,44 +6,46 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import Navbar from 'react-bootstrap/Navbar';
 import API from '../API';
 
+// const styles = {
+//     'display': 'none'
+// }
+
 function Characters() {
-    const [search, setSearch] = useState("")
-    const [image, setImage] = useState("https://www.superherodb.com/pictures2/portraits/10/100/1305.jpg")
-    const [name, setName] = useState("Thanos")
-    const [fullname, setFullname] = useState("Thanos")
-    const [alteregos, setAlterEgos] = useState("No alter egos found.")
-    const [birthplace, setBirthplace] = useState("Titan")
-    const [firstappearance, setFirstappearance] = useState("Iron Man #55")
-    const [publisher, setPublisher] = useState("Marvel Comics")
-    const [alignment, setAlignment] = useState("bad")
-    const [aliases, setaliases] = useState([
-        "The Mad Titan",
-        "Masterlord",
-        "The Overmaster",
-        "Chins"
-    ])
-    const [stats, setStats] = useState({
-        "intelligence": "100",
-        "strength": "100",
-        "speed": "33",
-        "durability": "100",
-        "power": "100",
-        "combat": "80"
+    const [styles, setStyles] = useState({
+        'display': 'none'
     })
-    const [race, setRace] = useState("Eternal")
-    const [gender, setGender] = useState("Male")
-    const [height, setHeight] = useState("6'7")
-    const [weight, setWeight] = useState("985 lb")
+    const [search, setSearch] = useState("")
+    const [image, setImage] = useState("")
+    const [name, setName] = useState("")
+    const [fullname, setFullname] = useState("")
+    const [alteregos, setAlterEgos] = useState("")
+    const [birthplace, setBirthplace] = useState("")
+    const [firstappearance, setFirstappearance] = useState("")
+    const [publisher, setPublisher] = useState("")
+    const [alignment, setAlignment] = useState("")
+    const [aliases, setaliases] = useState([])
+    const [powerstats, setPowerStats] = useState({})
+    const [race, setRace] = useState("")
+    const [gender, setGender] = useState("")
+    const [height, setHeight] = useState("")
+    const [haircolor, setHairColor] = useState("")
+    const [weight, setWeight] = useState("")
     const [hero, setHero] = useState({})
+    const [occupation, setOccupation] = useState("")
+    const [affiliations, setAffiliations] = useState([])
+    const [combatscore, setCombatScore] = useState("")
 
     function searching() {
-        const search = 'spider-man'
         console.log(search)
+        if (search === "") {
+            alert("Please Enter Character Name")
+            return
+        }
         API.search(search).then(res => {
-            if(!(res)) {
-                alert("Name not found!")
-            }
             console.log(res, res.biography['alter-egos']);
+            setStyles({
+                'display': 'block'
+            })
             setHero(res)
             setImage(res.image.url)
             setName(res.name)
@@ -57,94 +59,120 @@ function Characters() {
             setGender(res.appearance.gender)
             setHeight(res.appearance.height[0])
             setWeight(res.appearance.weight[0])
+            setHairColor(res.appearance['eye-color'])
+            setOccupation(res.work.occupation)
             setaliases(res.biography.aliases)
-            setStats(res.powerstats)
+            splitAffiliations(res.connections['group-affiliation'])
+            // setAffiliations(res.connections['group-affiliation'])
+            setPowerStats(res.powerstats)
+            calcCombatScore(res.powerstats);
+        }).catch(err => {
+            if (err) {
+                alert('Name not found. If additional names do not work the API may be in maintenance.');
+                console.log(err);
+            }
         })
+    }
+    function calcCombatScore(param) {
+        console.log(param);
+        let score = 0
+        Object.keys(param).map(key => score += parseInt(param[key]))
+        console.log(score)
+        console.log(powerstats);
+        setCombatScore(score);
+
+    }
+    function splitAffiliations(array) {
+        var arr = array.split(',').map(e => e.split(';'));;
+        setAffiliations(arr);
+        console.log(arr)
     }
     return (
         <>
-        {/* Search Picture Component */}
-        <Navbar bg="light" variant="light">
+            {/* Search Picture Component */}
+            <Navbar bg="light" variant="light">
                 <div className="searchbardiv">
                     <form class="form-inline mt-2 mt-md-0">
-                    <center><input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-                        <button onClick={() => searching()} class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button></center>
+                        <center><input class="form-control mr-sm-2" value={search} onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search" aria-label="Search" />
+                            <button onClick={() => searching()} class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button></center>
                     </form>
                 </div>
             </Navbar>
-            <div className="charactermargin">
+            <div style={styles}>
+                <div className="charactermargin">
+                    <div class="container marketing">
+                        <div class="row">
+                            <div className="charactertoplayer">
+                                <img className="characterimage" src={image} alt="Generic placeholder image" />
+                                <div className={"charactername"}>
+                                    <h1>{name}</h1>
+                                    <h4>{fullname}</h4>
+                                </div>
+                                <div className="numandtooltip">
+                                    <div className="numbercircle"><strong>{combatscore}</strong></div>
+                                    <div className="combatscore">Combat Score</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Character Info Component */}
                 <div class="container marketing">
                     <div class="row">
-                        <div className="charactertoplayer">
-                            <img className="characterimage" src={image} alt="Generic placeholder image" />
-                            <div className={"charactername"}>
-                                <h1>{name}</h1>
-                                <h4>{fullname}</h4>
+
+                        <div className="statisticbars">
+                            <h3>Power Stats</h3>
+                            <div className="statbar">
+                                <span>Intelligence: {powerstats.intelligence} &nbsp;</span>
+                                <ProgressBar variant="primary" animated now={powerstats.intelligence} className="bar" />
                             </div>
-                            <div className="numandtooltip">
-                                <div className="numbercircle"><strong>250</strong></div>
-                                <div className="combatscore">Combat Score</div>
+                            <div className="statbar">
+                                <span>Strength: {powerstats.strength} &nbsp;</span>
+                                <ProgressBar variant="danger" animated now={powerstats.strength} className="bar" />
+                            </div>
+                            <div className="statbar">
+                                <span>Speed: {powerstats.speed} &nbsp;</span>
+                                <ProgressBar variant="warning" animated now={powerstats.speed} className="bar" />
+                            </div>
+                            <div className="statbar">
+                                <span>Durability: {powerstats.durability} &nbsp;</span>
+                                <ProgressBar variant="success" animated now={powerstats.durability} className="bar" />
+                            </div>
+                            <div className="statbar">
+                                <span>Power: {powerstats.power} &nbsp;</span>
+                                <ProgressBar variant="secondary" animated now={powerstats.power} className="bar" />
+                            </div>
+                            <div className="statbar">
+                                <span>Combat: {powerstats.combat} &nbsp;</span>
+                                <ProgressBar variant="dark" animated now={powerstats.combat} className="bar" />
                             </div>
                         </div>
+
                     </div>
-                </div>
-            </div>
-
-            {/* Character Info Component */}
-            <div class="container marketing">
-                <div class="row">
-
-                    <div className="statisticbars">
-                        <h3>Power Stats</h3>
-                        <div className="statbar">
-                            <span>Intelligence: 45 &nbsp;</span>
-                            <ProgressBar variant="primary" animated now={45} className="bar" />
-                        </div>
-                        <div className="statbar">
-                            <span>Strength: 45 &nbsp;</span>
-                            <ProgressBar variant="danger" animated now={45} className="bar" />
-                        </div>
-                        <div className="statbar">
-                            <span>Speed: 45 &nbsp;</span>
-                            <ProgressBar variant="warning" animated now={45} className="bar" />
-                        </div>
-                        <div className="statbar">
-                            <span>Durability: 45 &nbsp;</span>
-                            <ProgressBar variant="success" animated now={45} className="bar" />
-                        </div>
-                        <div className="statbar">
-                            <span>Power: 45 &nbsp;</span>
-                            <ProgressBar variant="secondary" animated now={45} className="bar" />
-                        </div>
-                        <div className="statbar">
-                            <span>Combat: 45 &nbsp;</span>
-                            <ProgressBar variant="dark" animated now={45} className="bar" />
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div className="bio">
-                        <div className="biography">
-                            <p className="thinborder">Full Name: <span>The Full Name</span></p>
-                            <p className="thinborder">Alter Egos: <span>Any alternative names</span></p>
-                            <p className="thinborder">Aliases: <span>Alias names as well</span></p>
-                            <p className="thinborder">Place of Birth: <span>birthplace</span></p>
-                            <p className="thinborder">First Appearance: <span>first appearance</span></p>
-                            <p className="thinborder">Publisher: <span>publisher</span></p>
-                            <p className="thinborder">Alignment: <span>very good person</span></p>
-                        </div>
+                    <div class="row">
+                        <div className="bio">
+                            <div className="biography">
+                                <p className="thinborder">Full Name: <span>{fullname}</span></p>
+                                <p className="thinborder">Alter Egos: <span>{alteregos}</span></p>
+                                <ul className="thinborder">Aliases: {aliases.map(name => <li>{name}</li>)}</ul>
+                                <p className="thinborder">Place of Birth: <span>{birthplace}</span></p>
+                                <p className="thinborder">First Appearance: <span>{firstappearance}</span></p>
+                                <p className="thinborder">Publisher: <span>{publisher}</span></p>
+                                <p className="thinborder">Alignment: <span>{alignment}</span></p>
+                            </div>
                             <hr class="featurette-divider" />
-                        <div className="appearance">
-                            <p className="thinborder">Gender: <span>Male</span></p>
-                            <p className="thinborder">Race: <span>Human</span></p>
-                            <p className="thinborder">Height: <span>6'2</span></p>
-                            <p className="thinborder">Weight: <span>210 lbs</span></p>
-                            <p className="thinborder">Eye Color: <span>Green</span></p>
-                            <p className="thinborder">Hair Color: <span>Blonde</span></p>
-                            <p className="thinborder">Occupation: <span>Ownder of Lexcorp</span></p>
-                            <p className="thinborder">Affiliations: <span>"Injustice Gang, Injustice League"</span></p>
+                            <div className="appearance">
+                                <p className="thinborder">Gender: <span>{gender}</span></p>
+                                <p className="thinborder">Race: <span>{race}</span></p>
+                                <p className="thinborder">Height: <span>{height}</span></p>
+                                <p className="thinborder">Weight: <span>{weight}</span></p>
+                                {/* <p className="thinborder">Eye Color: <span>{eye}</span></p> */}
+                                <p className="thinborder">Hair Color: <span>{haircolor}</span></p>
+                                <p className="thinborder">Occupation: <span>{occupation}</span></p>
+                                <ul className="thinborder">Affiliations: {affiliations.map(item => <li>{item}</li>)}</ul>
 
+                            </div>
                         </div>
                     </div>
                 </div>

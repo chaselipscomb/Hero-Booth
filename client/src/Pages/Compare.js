@@ -78,10 +78,20 @@ function Compare() {
             }
         })
     }
-
+let winner;
     function fight() {
         if(nameone && nametwo !== "") {
         console.log(statsone, statstwo)
+        Object.keys(statsone).map(key => {
+            if(statsone[key]=='null') {
+                statsone[key] = 0
+            }
+        })
+        Object.keys(statstwo).map(key => {
+            if(statstwo[key]=='null') {
+                statstwo[key] = 0
+            }
+        })
         const firstherocount = parseInt(statsone.combat)
             + parseInt(statsone.intelligence)
             + parseInt(statsone.power)
@@ -97,14 +107,17 @@ function Compare() {
         if (firstherocount > secondherocount) {
             setimagewinner(imageone)
             setstylewinner({ 'display': 'flex' })
+            winner=nameone
             setwinnername(nameone)
         } else if (firstherocount < secondherocount) {
             setimagewinner(imagetwo)
             setstylewinner({ 'display': 'flex' })
+            winner=nametwo
             setwinnername(nametwo)
         } else {
             alert("Draw")
             setwinnername('draw')
+            winner='Draw'
             setimagewinner('https://www.meme-arsenal.com/memes/dc69087c94cb6ec44f899407d77a2839.jpg')
         }
         createResult();
@@ -116,8 +129,9 @@ function Compare() {
         let result = {
             personone: nameone,
             persontwo: nametwo,
-            result: winnername
+            result: winner
         }
+        console.log(result)
         API.create(result).then(console.log("result saved"))
     }
 
@@ -147,7 +161,7 @@ function Compare() {
                     </Card>
 
                     <div className="winnercontainer" style={stylewinner}>
-                        <h3>Winner</h3>
+                        <h3>{winnername}</h3>
                         <img src={imagewinner} alt="winner" className="winnerimage"></img>
                     </div>
 

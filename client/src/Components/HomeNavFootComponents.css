@@ -72,14 +72,19 @@
 }
 /* .myfooter {
     position: fixed; 
-    left: 0 ; right: 0; bottom: 0; 
-    height:[footer-height];
+    left: 0;
+    bottom: 0; 
 }
 .wrapper {
-    min-height:70vw; 
-    position:relative; 
-    padding-bottom:[footer-height]
-} */
+    min-height:100vw - 50px; 
+}  */
+@media only screen and (max-width:992px) {
+.comparebtn {
+    order: 1;
+    width: 280px;
+    align-self: center;
+}
+}
 @media only screen and (min-width:870px) {
 .mobileLogin {
     margin-right: 2vw;;

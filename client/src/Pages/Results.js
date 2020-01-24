@@ -44,30 +44,6 @@ function Results() {
                                         <td>{item.result}</td>
                                     </tr>
                                 ))}
-                                <tr>
-                                    <td>item.personone</td>
-                                    <td>Versus</td>
-                                    <td>item.persontwo</td>
-                                    <td>item.result</td>
-                                </tr>
-                                <tr>
-                                    <td>item.personone</td>
-                                    <td>Versus</td>
-                                    <td>item.persontwo</td>
-                                    <td>item.result</td>
-                                </tr>
-                                <tr>
-                                    <td>item.personone</td>
-                                    <td>Versus</td>
-                                    <td>item.persontwo</td>
-                                    <td>item.result</td>
-                                </tr>
-                                <tr>
-                                    <td>item.personone</td>
-                                    <td>Versus</td>
-                                    <td>item.persontwo</td>
-                                    <td>item.result</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

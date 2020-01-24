@@ -127,7 +127,7 @@ function Compare() {
                         <center><input class="form-control mr-sm-2" value={searchone} onChange={(e) => setsearchone(e.target.value)} type="text" placeholder="First Character" aria-label="Search" />
                             <button class="btn btn-outline-dark my-2 my-sm-0" onClick={() => searchingone()} type="submit">Search</button></center>
                     </form>
-                    <Button onClick={() => fight()} variant="info" style={{ fontSize: '32px', color: 'darkslategrey', backgroundColor: 'ghostwhite' }}>Compare</Button>
+                    <Button className="comparebtn" onClick={() => fight()} variant="info" style={{ fontSize: '32px', color: 'darkslategrey', backgroundColor: 'ghostwhite' }}>Compare</Button>
                     <form class="form-inline mt-2 mt-md-0">
                         <center><input class="form-control mr-sm-2" value={searchtwo} onChange={(e) => setsearchtwo(e.target.value)} type="text" placeholder="Second Character" aria-label="Search" />
                             <button class="btn btn-outline-dark my-2 my-sm-0" onClick={() => searchingtwo()} type="submit">Search</button></center>

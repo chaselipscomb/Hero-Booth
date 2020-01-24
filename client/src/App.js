@@ -10,6 +10,7 @@ import Results from './Pages/Results';
 import Navigation from './Components/Navigation';
 import Foot from './Components/Foot';
 
+
 class App extends Component {
 
   callBackendAPI = async () => {
@@ -25,7 +26,6 @@ class App extends Component {
   render() {
     return (
       <HashRouter basename="/">
-        <div className="wrapper">
         <Navigation />
           <Route exact path='/' component={Home} />
           <Route exact path='/Login' component={Login} />
@@ -33,7 +33,6 @@ class App extends Component {
           <Route exact path="/Compare" component={Compare} />
           <Route exact path="/Results" component={Results} />
           <Foot />
-          </div>
       </HashRouter>
     );
   }

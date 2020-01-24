@@ -3,16 +3,17 @@ import ResultsTable from '../Components/ResultsTable';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import API from '../API';
+import './results.css';
 
 function Results() {
     const [results, setResults] = useState([]);
-  useEffect(() => {
-    console.log("UseEffect working")
-    API.find().then(res => {
-      console.log(res.data);
-      setResults(res.data);
-    });
-  }, []);
+    useEffect(() => {
+        console.log("UseEffect working")
+        API.find().then(res => {
+            console.log(res.data);
+            setResults(res.data);
+        });
+    }, []);
     return (
         <>
             <Jumbotron fluid>
@@ -27,52 +28,46 @@ function Results() {
                         <table class="table table-striped table-sm">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Character</th>
-                                    <th>Character</th>
+                                    <th>Opponent #1</th>
+                                    <th>Versus</th>
+                                    <th>Opponent #2</th>
                                     <th>Result</th>
-                                    <th>Win Rate</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                        {results.map(item => (
-                            <tr>
-                                    <td>{item.personone}</td>
-                                    <td>{item.persontwo}</td>
-                                    <td>{item.result}</td>
-                                </tr>
-                        ))}
-                            
+                                {results.map(item => (
+                                    <tr>
+                                        <td>{item.personone}</td>
+                                        <td>Versus</td>
+                                        <td>{item.persontwo}</td>
+                                        <td>{item.result}</td>
+                                    </tr>
+                                ))}
                                 <tr>
-                                    <td>1</td>
-                                    <td>Lorem</td>
-                                    <td>ipsum</td>
-                                    <td>dolor</td>
-                                    <td>sit</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>amet</td>
-                                    <td>consectetur</td>
-                                    <td>adipiscing</td>
-                                    <td>elit</td>
+                                    <td>item.personone</td>
+                                    <td>Versus</td>
+                                    <td>item.persontwo</td>
+                                    <td>item.result</td>
                                 </tr>
                                 <tr>
-                                    <td>3</td>
-                                    <td>Integer</td>
-                                    <td>nec</td>
-                                    <td>odio</td>
-                                    <td>Praesent</td>
+                                    <td>item.personone</td>
+                                    <td>Versus</td>
+                                    <td>item.persontwo</td>
+                                    <td>item.result</td>
                                 </tr>
                                 <tr>
-                                    <td>4</td>
-                                    <td>libero</td>
-                                    <td>Sed</td>
-                                    <td>cursus</td>
-                                    <td>ante</td>
+                                    <td>item.personone</td>
+                                    <td>Versus</td>
+                                    <td>item.persontwo</td>
+                                    <td>item.result</td>
                                 </tr>
-                                
+                                <tr>
+                                    <td>item.personone</td>
+                                    <td>Versus</td>
+                                    <td>item.persontwo</td>
+                                    <td>item.result</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

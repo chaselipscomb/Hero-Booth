@@ -11,7 +11,7 @@ function Results() {
         console.log("UseEffect working")
         API.find().then(res => {
             console.log(res.data);
-            setResults(res.data);
+            setResults(res.data.reverse());
         });
     }, []);
     return (

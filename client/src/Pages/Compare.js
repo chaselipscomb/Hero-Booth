@@ -80,6 +80,7 @@ function Compare() {
     }
 
     function fight() {
+        if(nameone && nametwo !== "") {
         console.log(statsone, statstwo)
         const firstherocount = parseInt(statsone.combat)
             + parseInt(statsone.intelligence)
@@ -105,9 +106,11 @@ function Compare() {
             alert("Draw")
             setwinnername('draw')
             setimagewinner('https://www.meme-arsenal.com/memes/dc69087c94cb6ec44f899407d77a2839.jpg')
-            setstylewinner({ 'display': 'flex' })
         }
         createResult();
+    } else {
+        alert('Have you choses two Characters?')
+    }
     }
     function createResult() {
         let result = {

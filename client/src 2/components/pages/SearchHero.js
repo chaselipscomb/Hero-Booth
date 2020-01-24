@@ -29,8 +29,6 @@ const styles = {
         minWidth: "200px",
     },
     image: {
-        margin: "2%",
-        padding: "1%",
         width: "100%",
         borderRadius: "10%",
         borderStyle: "ridge",
@@ -131,7 +129,7 @@ function SearchHero() {
             </div>
             <div style={styles.resultcard}>
                 <Row>
-                    <Col xs={5} style={styles.imagecol}>
+                    <Col style={styles.imagecol}>
                         <center><img src={image} style={styles.image} alt="picture" /></center>
                     </Col>
                     <Col>

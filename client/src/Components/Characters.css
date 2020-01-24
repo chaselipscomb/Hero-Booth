@@ -1,0 +1,185 @@
+.searchbardiv {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+}
+.charactermargin {
+    margin-top: 5vh;
+}
+.charactertoplayer {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.characterimage {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+.charactername {
+    display:flex;
+    align-items: center;
+    flex-flow: column;
+}
+.numandtooltip {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.combatscore {
+    display: none;
+}
+.numandtooltip:hover :last-child{
+    display: block;
+}
+.numbercircle {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(187, 179, 212);
+    border-radius: 50%;
+    border-style: solid;
+    font-size: 40px;
+}
+.statisticbars {
+    width: 100%;
+    margin-top: 5vh;
+    display:flex;
+    flex-flow: column;
+}
+.statbar {
+    display:flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.bar {
+    flex-grow: 1;
+}
+.bio {
+    display:flex;
+    margin-top: 5vh;
+    width: 100%;
+}
+.biography {
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    width: 50%;
+}
+.appearance {
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    width: 50%;
+}
+.descriptionbarrier {
+    display: none;
+}
+.thinborder {
+    border-bottom: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+}
+.comparenavbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.comparecontainer {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5vh;
+}
+.winnercontainer {
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+}
+.winnerimage {
+    width: 300px;
+    border-radius: 5%;
+    border: 5px solid black;
+}
+@media only screen and (max-width:992px) {
+    .comparecontainer {
+        flex-flow: column;
+    }
+    .comparecontainer :nth-child(1){
+        margin-bottom: 2vh;
+        margin-top: 2vh;
+    }
+    .winnercontainer {
+        order: 1;
+    }
+    .comparenavbar {
+        flex-flow:column;
+    }
+    .compareheader {
+        display: none;
+    }
+}
+.comparenavbar :first-child {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.comparenavbar :last-child {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+@media only screen and (max-width:870px) {
+    .charactertoplayer {
+        flex-flow: column;
+    }
+    .characterimage {
+        width: 400px;
+        height: 400px;
+    }
+    .charactername {
+        order: 1;
+    }
+    .numbercircle {
+        margin: 2vh 0 2vh;
+    }
+    
+}
+@media only screen and (max-width:574px) {
+.row {
+    padding: 2vw;
+}
+}
+@media only screen and (max-width:550px) {
+    .bio {
+        flex-flow: column;
+        align-items: center;
+    }
+    .descriptionbarrier {
+        display:block;
+    }
+    .biography {
+        width: 80%;
+    }
+    .appearance {
+        width: 80%;
+    }
+}
+@media only screen and (max-width:415px) {
+.characterimage {
+    width: 300px;
+    height: 300px;
+}
+.numbercircle {
+    height: 80px;
+    width: 80px;
+    font-size: 20px;    
+}
+}

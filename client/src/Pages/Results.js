@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import ResultsTable from '../Components/ResultsTable';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import API from '../API';
 
 function Results() {
     const [results, setResults] = useState([]);
   useEffect(() => {
     console.log("UseEffect working")
-    // API.find().then(res => {
-    //   console.log(res.data);
-    //   setResults(res.data);
-    // });
+    API.find().then(res => {
+      console.log(res.data);
+      setResults(res.data);
+    });
   }, []);
     return (
         <>
@@ -34,6 +35,15 @@ function Results() {
                                 </tr>
                             </thead>
                             <tbody>
+
+                        {results.map(item => (
+                            <tr>
+                                    <td>{item.personone}</td>
+                                    <td>{item.persontwo}</td>
+                                    <td>{item.result}</td>
+                                </tr>
+                        ))}
+                            
                                 <tr>
                                     <td>1</td>
                                     <td>Lorem</td>

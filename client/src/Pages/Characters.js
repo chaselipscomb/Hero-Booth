@@ -35,7 +35,8 @@ function Characters() {
     const [affiliations, setAffiliations] = useState([])
     const [combatscore, setCombatScore] = useState("")
 
-    function searching() {
+    function searching(e) {
+        e.preventDefault();
         console.log(search)
         if (search === "") {
             alert("Please Enter Character Name")
@@ -94,7 +95,7 @@ function Characters() {
                 <div className="searchbardiv">
                     <form class="form-inline mt-2 mt-md-0">
                         <center><input class="form-control mr-sm-2" value={search} onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search" aria-label="Search" />
-                            <button onClick={() => searching()} class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button></center>
+                            <button onClick={(e) => searching(e)} class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button></center>
                     </form>
                 </div>
             </Navbar>

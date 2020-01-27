@@ -42,13 +42,15 @@ function Navigation() {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="/Characters">Search</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Versus</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Results</Dropdown.Item>
+                            <Dropdown.Item><Link to="/" className="link" style={{color:'black'}}>Home</Link></Dropdown.Item>
+                            <Dropdown.Divider />
+                            <Dropdown.Item><Link to="/Characters" className="link" style={{color:'black'}}>Characters</Link></Dropdown.Item>
+                            <Dropdown.Item><Link to="/Compare" className="link" style={{color:'black'}}>Compare</Link></Dropdown.Item>
+                            <Dropdown.Item><Link to="/Results" className="link" style={{color:'black'}}>Results</Link></Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     <Navbar.Brand href="/">Hero Booth</Navbar.Brand>
-                    <Link className="mobileLogin" to="/Login">Login</Link>
+                    {/* <Link className="mobileLogin" to="/Login">Login</Link> */}
                 </Navbar>
             </div>
         </React.Fragment>

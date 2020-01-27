@@ -34,6 +34,7 @@ function Characters() {
     const [occupation, setOccupation] = useState("")
     const [affiliations, setAffiliations] = useState([])
     const [combatscore, setCombatScore] = useState("")
+    const [response, setResponse] = useState([])
 
     function searching(e) {
         e.preventDefault();
